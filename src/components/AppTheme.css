@@ -1,0 +1,61 @@
+/* Selected text Color */
+::selection {
+  background: #999999e8;
+  color: white
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 100;
+  line-height: 1.5rem;
+}
+
+h3 {
+  font: 1.5rem 'Source Sans Pro', sans-serif;
+  font-weight: normal;
+  font-weight: 100;
+}
+
+h4 {
+  color: #999;
+  font: 1.25rem 'Georgia', sans-serif;
+  font-style: italic;
+}
+
+h5 {
+  color: #999;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h6 {
+  font: 1.25rem 'Source Sans Pro', sans-serif;
+  font-weight: normal;
+  font-weight: 100;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.25rem 0
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
