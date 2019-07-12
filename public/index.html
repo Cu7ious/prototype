@@ -17,9 +17,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
+  <style>
+    body {
+      background: #ededed;
+      color: #555;
+      position: relative;
+      margin: 0;
+      font-size: 16px;
+    }
+  
+    #app {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      min-height: 100vh;
+    }
+  
+    #app aside {
+      padding: 2rem;
+      color: #999;
+      background-color: aliceblue
+    }
+  
+    #logo {
+      font: 3rem bold monospace;
+      margin: 0 0 2rem;
+      text-align: center
+    }
+  
+    #app aside nav ul {
+      list-style-position: inside;
+      margin: .5rem 0;
+      padding: 0;
+    }
+  
+    #app aside nav ul li {
+      margin: 1.5rem 0;
+      cursor: pointer
+    }
+  
+    #app aside nav ul li.active > ul {
+      color: #999;
+    }
+  
+    #app aside nav ul li.active,
+    #app aside nav ul li:hover {
+      color: #333;
+    }
+  
+    #app aside nav ul li > ul {
+      display: none;
+      list-style: none;
+      padding-left: 1.4rem
+    }
+  
+    #app aside nav ul li > ul.opened {
+      display: block
+    }
+  
+    #app main {
+      padding: 2rem;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="app">
+    <aside>
+      <div id="logo">MBF</div>
+      <nav>
+        <ul>
+          <li>Without Children</li>
+          <li>
+            Dashboards
+            <ul>
+              <li>Ecommerce</li>
+              <li>CRM</li>
+            </ul>
+          </li>
+          <li>
+            Apps
+            <ul>
+              <li>TodoMVC</li>
+              <li>
+                Email
+                <ul>
+                  <li>Inbox</li>
+                  <li>Sent</li>
+                  <li>Spam</li>
+                  <li>Trash</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Multi Level
+            <ul>
+              <li>
+                Second Level
+                <ul>
+                  <li>Third Level
+                    <ul>
+                      <li>Item 1</li>
+                      <li>Item 2</li>
+                      <li>Item 3</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main>content</main>
+  </div>
+  
+  <script>
+    // Sidebar menu
+    function removeClassName(el, className) {
+      const list = el.querySelectorAll(`.${className}`);
+      list.length > 0 && list.forEach(item => item.classList.remove(className));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar menu
+      const appNav = document.querySelector('#app aside ul');
+      appNav.addEventListener('click', e => {
+        const subNav = e.target.querySelector('ul');
+        const level = e.target.parentElement;
+
+        removeClassName(level, 'active');
+        removeClassName(level, 'opened');
+
+        e.target.classList.toggle('active');
+
+        subNav && subNav.classList.toggle('opened');
+      });
+    });
+  </script>
+
   <div id="root">
     <noscript>
       You need to enable JavaScript to run this app.
